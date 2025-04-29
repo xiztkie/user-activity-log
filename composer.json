@@ -1,0 +1,30 @@
+{
+    "name": "ken/user-activity-log",
+    "description": "User Activity Log for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ken\\UserActivityLog\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.0",
+        "illuminate/support": "^10.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ken\\UserActivityLog\\Providers\\ActivityLogServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Ken Dianto",
+            "email": "xflyxkie@gmail.com",
+            "homepage": "https://github.com/xiztkie",
+            "role": "Developer"
+        }
+    ]
+}

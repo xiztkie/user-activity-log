@@ -3,9 +3,6 @@
 namespace epenthink\UserActivityLog\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Event;
-use epenthink\UserActivityLog\Events\UserActivityEvent;
-use epenthink\UserActivityLog\Listeners\LogUserActivityListener;
 
 class ActivityLogServiceProvider extends ServiceProvider
 {
@@ -26,17 +23,21 @@ class ActivityLogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Memastikan event dan listener terdaftar
-        Event::listen(
-            UserActivityEvent::class,
-            LogUserActivityListener::class
-        );
 
-        // Publish file migrasi jika ada
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../../database/migrations' => database_path('migrations'),
             ], 'migrations');
+
+            $this->publishes([
+                __DIR__.'/../../src/Events' => app_path('Events'),
+                __DIR__.'/../../src/Http/Middleware' => app_path('Http/Middleware'),
+                __DIR__.'/../../src/Listeners' => app_path('Listeners'),
+                __DIR__.'/../../src/Models' => app_path('Models'),
+                __DIR__.'/../../src/Providers' => app_path('Providers'),
+            ], 'app');
         }
     }
+
+
 }

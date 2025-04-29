@@ -1,9 +1,7 @@
-Berikut contoh `README.md` untuk package **User Activity Log** buatanmu:
 
----
-
-```md
 # User Activity Log for Laravel
+![image](https://github.com/user-attachments/assets/94a61cdb-730f-4965-b723-5a8582486c23)
+
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -24,6 +22,8 @@ php artisan vendor:publish --provider="epenthink\UserActivityLog\Providers\Activ
 php artisan vendor:publish --provider="epenthink\UserActivityLog\Providers\ActivityLogServiceProvider" --tag=migrations
 ```
 
+##
+
 ## 🗂 Struktur yang Dipublish
 
 - `app/Events/` – Event untuk mencatat aktivitas
@@ -31,32 +31,19 @@ php artisan vendor:publish --provider="epenthink\UserActivityLog\Providers\Activ
 - `app/Listeners/` – Listener event
 - `app/Models/` – Model yang digunakan
 - `database/migrations/` – Tabel log aktivitas pengguna
+  
+## ⚙️ Konfigurasi Middleware
+Jika kamu menggunakan Laravel berbasis bootstrap/app.php (seperti Lumen atau Laravel Zero), tambahkan middleware berikut:
 
-## 🧪 Contoh Penggunaan
-
-```php
-activity()->log('User melakukan aksi tertentu');
+```bash
+$middleware->web(append: [
+    \App\Http\Middleware\LogUserActivityMiddleware::class,
+]);
 ```
-
-> Tambahkan logging secara manual jika dibutuhkan atau biarkan sistem otomatis mendeteksi aktivitas.
-
-## 🧠 Konfigurasi
-
-Jika disediakan file konfigurasi, kamu bisa menyesuaikannya di `config/activitylog.php` setelah dipublish.
-
-## 🧼 Uninstall
-
-Untuk menghapus, cukup hapus folder `vendor/epenthink/user-activity-log` dan file yang telah dipublish (tidak otomatis terhapus).
-
-## 🧑‍💻 Kontribusi
-
-Pull request dan issue sangat diterima! Silakan fork project ini dan kirim kontribusimu.
+Untuk Laravel standar (dengan Http/Kernel.php), tambahkan di $middlewareGroups['web'].
 
 ## 📝 Lisensi
 
 MIT © 2024 Ken Dianto (@xiztkie)
-```
 
----
 
-Ingin ditambahkan contoh event atau middleware lebih lanjut juga?

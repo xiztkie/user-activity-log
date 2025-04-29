@@ -10,7 +10,8 @@
     },
     "require": {
         "php": ">=8.0",
-         "illuminate/support": "^11.0 || ^12.0"
+        "illuminate/support": "^11.0 || ^12.0", 
+        "illuminate/database": "^11.0 || ^12.0" 
     },
     "authors": [
         {
@@ -19,5 +20,25 @@
             "homepage": "https://github.com/xiztkie",
             "role": "Developer"
         }
-    ]
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider"
+            ],
+            "aliases": {
+                "ActivityLog": "epenthink\\UserActivityLog\\Facades\\ActivityLog"
+            }
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"migrations\"",
+            "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"config\""
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"migrations\"",
+            "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"config\""
+        ]
+    }
 }

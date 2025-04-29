@@ -32,7 +32,14 @@ php artisan vendor:publish --provider="epenthink\UserActivityLog\Providers\Activ
 - `app/Models/` – Model yang digunakan
 - `database/migrations/` – Tabel log aktivitas pengguna
   
-## ⚙️ Konfigurasi Middleware
+## ⚙️ Konfigurasi Database
+migration table useractivity ke database
+
+```bash
+php artisan migrate
+```
+  
+## ⚙️ Konfigurasi Middleware 
 Jika kamu menggunakan Laravel berbasis bootstrap/app.php (seperti Lumen atau Laravel Zero), tambahkan middleware berikut:
 
 ```bash

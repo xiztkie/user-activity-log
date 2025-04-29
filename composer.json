@@ -1,11 +1,11 @@
 {
-    "name": "ken/user-activity-log",
+    "name": "epenthink/user-activity-log",
     "description": "User Activity Log for Laravel",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "ken\\UserActivityLog\\": "src/"
+            "epenthink\\UserActivityLog\\": "src/"
         }
     },
     "require": {
@@ -15,7 +15,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ken\\UserActivityLog\\Providers\\ActivityLogServiceProvider"
+                "epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider"
             ]
         }
     },

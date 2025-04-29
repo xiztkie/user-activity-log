@@ -31,14 +31,17 @@
             }
         }
     },
-    "scripts": {
-        "post-install-cmd": [
-            "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"migrations\"",
-            "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"config\""
-        ],
-        "post-update-cmd": [
-            "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"migrations\"",
-            "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"config\""
-        ]
-    }
+   "scripts": {
+    "post-install-cmd": [
+        "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"migrations\"",
+        "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"config\"",
+        "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"App\""
+    ],
+    "post-update-cmd": [
+        "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"migrations\"",
+        "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"config\"",
+        "@php artisan vendor:publish --provider=\"Epenthink\\UserActivityLog\\Providers\\ActivityLogServiceProvider\" --tag=\"App\""
+    ]
+}
+
 }
